@@ -1,0 +1,63 @@
+:: Start {"position":"125,0"}
+At some point in your life, you realized you had lost everything. Family, friends, and a place to call home; these were but a few of the things you had taken for granted during your quiet little life in Roclif Village. That life you once thought to be a boring one where nothing interesting ever happened had, in reality, been peaceful days of bliss.
+
+If you could go back in time and live that life again, perhaps the first thing you'd do is tell those you cared about that you love them. Unfortunately, the only thing you can do now is reminisce on a past that is long gone.
+
+[[Reminisce on those peaceful days|ThePast-0]]
+
+:: ThePast-0 {"position":"125,125"}
+<<set _shirts = ["white t-shirt", ]>>
+<<set _pants = ["brown shorts", "jeans"]>>
+<<set _shoes = ["straw sandals", "brown boots"]>>
+<<set $answer = "">>
+The day things begun to change had started like any other. You had awoken to the rising sun peeking in through the window, bathing your room in its unwelcome glow. Like most days back then you found yourself tugging your bedsheet up over your face, trying to hide from that pesky invader.
+
+That battle was of course in vain, and you eventually had to admit defeat. Throwing the covers off with an irritated grumble, you shielded your eyes against that annoying invading light. After blinking the sleep out of your eyes, it was time to start the day.
+
+Pulling open a large wooden wardrobe, you started getting dressed. First a <<listbox "$player.outfit.shirt">><<optionsfrom _shirts>><</listbox>>, quickly followed up by a pair of <<listbox "$player.outfit.pants">><<optionsfrom _pants>><</listbox>>. Last you pulled on a pair of <<listbox "$player.outfit.shoes">><<optionsfrom _shirts>><</listbox>> as you headed for the door.
+
+[[Ready to face the day, you left the room|ThePast-1]]
+
+:: ThePast-1 {"position":"0,125"}
+If you were to describe your house in one word, perhaps it would be "cozy." There were about six rooms in total - the living room, the kitchen, a bathroom, and three bedrooms - and the house itself was made of a dark, polished wood. Perhaps the sole exception to this rule was a stone fireplace in the living room, which probably wasn't needed thanks to central heating.
+
+Dark green carpets could be found covering parts of the floor, while family portraits, landscape photos, and father's hunting rifle adorned the walls. Toys, odd trinkets, a used cup, hunting trophies, and an art project your sister was working on were also scattered about. Although your mom liked to call this lived in, you preferred to think of it as cluttered.
+
+As you made your way into the living room, the pleasant scent of seasoned fish, fresh baked bread, and freshly brewed coffee wafted in my direction. It seemed my mom had been hard at work in the kitchen preparing breakfast today, though she now sat at the table enjoying her hard work. Two other people sat at the table, who you recognized as your friends <<print $friendMale.name>> and <<print $friendFemale.name>>
+
+"Good morning, <<textbox "$player.name" $player.name>>," my mother said, smiling in my direction. "How's my darling little <<listbox "$player.gender" autoselect>>
+    [<<option "daughter" autoselect>>]
+    [<<option "son">>]
+<</listbox>> doing?"
+
+[[I'm not a kid anymore|ThePast-2][$answer = "NotAKid"]]
+[[I want to go back to bed|ThePast-2]]
+[[Grumble and head for the door|ThePast-3][$answer = "IgnoredMom"]]
+
+:: ThePast-2 {"position":"125,250"}
+<<if $player.gender == "daughter">>
+    <<set $player.gender == "female">>
+<<elseif $player.gender == "son">>
+    <<set $player.gender == "male">>
+<</if>>
+<<if $answer == "NotAKid">>
+    "You're still my darling little <<if $player.gender == 0>>son<<else>>daughter<</if>>," my mother sighed. "Can't you at least humor me a little?"
+
+    "Not a chance," I said, rolling my eyes. "I'm sixteen. I'm way too old to be your 'darling little' anything."
+
+    "Suit yourself," she said, taking a long drink of your coffee. ""
+<<else>>
+    She smiled quietly, setting her steaming cup down on the table. "Today's not a school day, so can I assume you have plans?"
+<</if>>
+
+"That's right. Me and my friends are going going to get breakfast at Beau's Diner, then we're going to explore the forest."
+
+My mom frowned, bringing a hand up to her cheek. "Be careful, okay? I've heard strange people have been seen there recently."
+
+"Don't worry, I will be," I lied. "We "
+
+Naturally, my mom didn't need to know we were there going there to figure out what those people were doing. 
+
+[[Head out|ThePast-3]]
+
+:: ThePast-3 {"position":"0,250"}

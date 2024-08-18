@@ -1,0 +1,13 @@
+:: StoryTitle {"position":"0,0"}
+Superhumans
+
+:: StoryData
+{
+        "ifid": "B335FDDF-91A5-437D-A065-6777F3855C47",
+        "format": "SugarCube",
+        "format-version": "2.37.3"
+}
+
+:: StoryInit {"position":"0,0"}
+<<include "Characters">>
+/* <<include "ItemMasterlist">> */

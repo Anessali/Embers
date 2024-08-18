@@ -1,0 +1,27 @@
+:: Characters {"position":"0,0"}
+<<set $player = {
+        name : "Ash",
+        gender : "female",
+        outfit : {
+            shirt : "", 
+            pants : "",
+            shoes : ""
+        }
+}>>
+
+<<set $friendMale = {
+        name : "Henrik",
+        friendship : 50,
+        attraction : 0,
+        enmity : 0
+}>>
+
+<<set $friendFemale = {
+        name : "Erina",
+        friendship : 50,
+        attraction : 0,
+        enmity : 0
+}>>
+
+
+jury servic
