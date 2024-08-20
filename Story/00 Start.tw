@@ -1,7 +1,10 @@
 :: Start {"position":"125,0"}
+<<attract $friendFemale 40>>
+<<attract $friendMale 40>>
+
 At some point in your life, you realized you had lost everything. Family, friends, and a place to call home; these were but a few of the things you had taken for granted during your quiet little life in Roclif Village. That life you once thought to be a boring one where nothing interesting ever happened had, in reality, been peaceful days of bliss.
 
-If you could go back in time and live that life again, perhaps the first thing you'd do is tell those you cared about that you love them. Unfortunately, the only thing you can do now is reminisce on a past that is long gone.
+If you could go back and live that life again, there were a lot of things you'd have done differently. Unfortunately, the only thing you could do now was reminisce on a past that was long gone.
 
 [[Reminisce on those peaceful days|ThePast-0]]
 
@@ -10,29 +13,30 @@ If you could go back in time and live that life again, perhaps the first thing y
 <<set _pants = ["brown shorts", "jeans"]>>
 <<set _shoes = ["straw sandals", "brown boots"]>>
 <<set $answer = "">>
-The day things begun to change had started like any other. You had awoken to the rising sun peeking in through the window, bathing your room in its unwelcome glow. Like most days back then you found yourself tugging your bedsheet up over your face, trying to hide from that pesky invader.
+You awake to the rising sun peeking in through the window, bathing your room in its unwelcome glow. Like most days you find yourself tugging your bedsheet up over your face, trying to hide from that pesky invader.
 
-That battle was of course in vain, and you eventually had to admit defeat. Throwing the covers off with an irritated grumble, you shielded your eyes against that annoying invading light. After blinking the sleep out of your eyes, it was time to start the day.
+This battle is of course in vain, and you eventually have to admit defeat. Throwing the covers off with an irritated grumble, you shield your eyes against that annoying invading light. After blinking the sleep out of your eyes, it's time to start the day.
 
-Pulling open a large wooden wardrobe, you started getting dressed. First a <<listbox "$player.outfit.shirt">><<optionsfrom _shirts>><</listbox>>, quickly followed up by a pair of <<listbox "$player.outfit.pants">><<optionsfrom _pants>><</listbox>>. Last you pulled on a pair of <<listbox "$player.outfit.shoes">><<optionsfrom _shirts>><</listbox>> as you headed for the door.
+Pulling open a large wooden wardrobe, you start getting dressed. First a <<listbox "$player.outfit.shirt">><<optionsfrom _shirts>><</listbox>>, soon followed up by a pair of <<listbox "$player.outfit.pants">><<optionsfrom _pants>><</listbox>>. Last you pull on a pair of <<listbox "$player.outfit.shoes">><<optionsfrom _shirts>><</listbox>> as you head for the door.
 
 [[Ready to face the day, you left the room|ThePast-1]]
 
 :: ThePast-1 {"position":"0,125"}
-If you were to describe your house in one word, perhaps it would be "cozy." There were about six rooms in total - the living room, the kitchen, a bathroom, and three bedrooms - and the house itself was made of a dark, polished wood. Perhaps the sole exception to this rule was a stone fireplace in the living room, which probably wasn't needed thanks to central heating.
+If you were to describe your house in one word, perhaps it would be "cozy." There are about six rooms in total - the living room, the kitchen, a bathroom, and three bedrooms - and the house itself is made of a dark, polished wood. Perhaps the sole exception to this rule is a stone fireplace in the living room, which isn't needed often.
 
-Dark green carpets could be found covering parts of the floor, while family portraits, landscape photos, and father's hunting rifle adorned the walls. Toys, odd trinkets, a used cup, hunting trophies, and an art project your sister was working on were also scattered about. Although your mom liked to call this lived in, you preferred to think of it as cluttered.
+Dark green carpets can be found covering parts of the floor, while family portraits, landscape photos, and father's hunting rifle adorn the walls. Toys, odd trinkets, a recently used cup, hunting trophies, and an art project your sister was working on are also scattered about. Although your mom likes to call this lived in, you prefer to think of it as cluttered.
 
-As you made your way into the living room, the pleasant scent of seasoned fish, fresh baked bread, and freshly brewed coffee wafted in my direction. It seemed my mom had been hard at work in the kitchen preparing breakfast today, though she now sat at the table enjoying her hard work. Two other people sat at the table, who you recognized as your friends <<print $friendMale.name>> and <<print $friendFemale.name>>
+As you make your way into the living room, the pleasant scent of seasoned fish, fresh baked bread, and roasted coffee wafts in your direction. It seems your mom had been hard at work in the kitchen preparing breakfast today, though she now sits at the table enjoying the results of her hard work. Two other people sit at the table, who you recognize as your friends <<print $friendMale.name>> and <<print $friendFemale.name>>.
 
-"Good morning, <<textbox "$player.name" $player.name>>," my mother said, smiling in my direction. "How's my darling little <<listbox "$player.gender" autoselect>>
+"Good morning, <<textbox "$player.name" $player.name>>," your mother says, smiling in your direction. "How's my darling little <<listbox "$player.gender" autoselect>>
     [<<option "daughter" autoselect>>]
     [<<option "son">>]
 <</listbox>> doing?"
 
-[[I'm not a kid anymore|ThePast-2][$answer = "NotAKid"]]
-[[I want to go back to bed|ThePast-2]]
-[[Grumble and head for the door|ThePast-3][$answer = "IgnoredMom"]]
+There's a brief snicker from <<print $friendFemale.name>>. <<print $friendMale.name>> sighs, who takes a drink without saying a word.
+
+[[I'm not a kid anymore.|ThePast-2][$answer = "NotAKid"]]
+[[I'm doing fine. Thanks.|ThePast-2][$answer "DoingFine"]]
 
 :: ThePast-2 {"position":"125,250"}
 <<if $player.gender == "daughter">>
@@ -41,18 +45,20 @@ As you made your way into the living room, the pleasant scent of seasoned fish, 
     <<set $player.gender == "male">>
 <</if>>
 <<if $answer == "NotAKid">>
-    "You're still my darling little <<if $player.gender == 0>>son<<else>>daughter<</if>>," my mother sighed. "Can't you at least humor me a little?"
+    <<set $friendFemale.friendship += 2>>
+    "You're still my darling little <<if $player.gender == 0>>son<<else>>daughter<</if>>," your mother sighs. "Can't you at least humor me a little?"
 
-    "Not a chance," I said, rolling my eyes. "I'm sixteen. I'm way too old to be your 'darling little' anything."
+    "Not a chance," you say, rolling your eyes. "I'm sixteen. I'm way too old to be your 'darling little' anything."
 
-    "Suit yourself," she said, taking a long drink of your coffee. ""
-<<else>>
-    She smiled quietly, setting her steaming cup down on the table. "Today's not a school day, so can I assume you have plans?"
+    "Suit yourself," she says, taking a long drink of coffee. ""
+<<elseif $answer == "DoingFine">>
+    <<set $friendMale.friendship += 2>>
+    Your mother smiles, setting her cup aside. "I'm glad to hear that." 
 <</if>>
 
-"That's right. Me and my friends are going going to get breakfast at Beau's Diner, then we're going to explore the forest."
+"That's right. We're going to go explore the forest."
 
-My mom frowned, bringing a hand up to her cheek. "Be careful, okay? I've heard strange people have been seen there recently."
+Your mom frowned, bringing a hand up to her cheek. "Be careful, okay? I've heard strange people have been seen there recently."
 
 "Don't worry, I will be," I lied. "We "
 

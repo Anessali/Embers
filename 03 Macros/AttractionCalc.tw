@@ -1,0 +1,14 @@
+:: CustomWidgets [widget]
+/* _args[0] == character object
+ * _args[1] == attraction increase 
+ */
+<<widget "attract">><<nobr>>
+    <<set _playerGender = SugarCube.State.variables.player.gender>>
+    <<if _playerGender == _args[0].gender && _args[1] >= 1>>
+        <<set _args[0].attraction += _args[1] * _args[0].homo >>
+    <<elseif _playerGender != _args[0] && _args[1] >= 1>>
+        <<set _args[0].attraction += _args[1] * _args[0].hetero>>
+    <<else>>
+        <<set _args[0].attraction += _args[1]>>
+    <</if>>
+<</nobr>><</widget>>

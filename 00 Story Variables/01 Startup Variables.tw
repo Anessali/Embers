@@ -10,18 +10,21 @@
 }>>
 
 <<set $friendMale = {
-        name : "Henrik",
-        friendship : 50,
+        name : "Victor",
+        gender : "male",
+        friendship : 80,
         attraction : 0,
-        enmity : 0
+        enmity : 0,
+        hetero : 1.0,
+        homo : 0.4
 }>>
 
 <<set $friendFemale = {
-        name : "Erina",
-        friendship : 50,
+        name : "Sophia",
+        gender : "female",
+        friendship : 80,
         attraction : 0,
-        enmity : 0
+        enmity : 0,
+        hetero : 1.0,
+        homo : 0.4
 }>>
-
-
-jury servic
