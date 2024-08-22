@@ -1,0 +1,13 @@
+{
+    "sugarcube-2": {
+        "macros": {
+            "attract": {
+                "container": false,
+                "parameters": [
+                    "text &+ number"
+                ],
+            },
+            "anotherOne": {}
+        }
+    }
+}

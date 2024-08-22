@@ -16,7 +16,8 @@
         attraction : 0,
         enmity : 0,
         hetero : 1.0,
-        homo : 0.4
+        homo : 0.4,
+        peace : 0
 }>>
 
 <<set $friendFemale = {

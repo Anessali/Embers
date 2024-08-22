@@ -1,3 +1,5 @@
+/* https://github.com/cyrusfirheir/twee3-language-tools/blob/master/docs/parameters.md */
+
 :: CustomWidgets [widget]
 /* _args[0] == character object
  * _args[1] == attraction increase 
