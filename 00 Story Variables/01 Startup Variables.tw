@@ -23,7 +23,7 @@
 <<set $friendFemale = {
         name : "Sophia",
         gender : "female",
-        friendship : 80,
+        friendship : 20,
         attraction : 0,
         enmity : 0,
         hetero : 1.0,

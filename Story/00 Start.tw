@@ -1,69 +1,122 @@
 :: Start {"position":"125,0"}
-<<attract $friendFemale 40>>
+<<nobr>><<attract $friendFemale 40>>
 <<attract $friendMale 40>>
-
-At some point in your life, you realized you had lost everything. Family, friends, and a place to call home; these were but a few of the things you had taken for granted during your quiet little life in Roclif Village. That life you once thought to be a boring one where nothing interesting ever happened had, in reality, been peaceful days of bliss.
+At some point in your life, you realized you had lost everything. Friends, family, and a place to call home; these were but a few of the things you had taken for granted during your quiet little life in Goldfield. That life you once thought to be a boring one where nothing interesting ever happened had, in reality, been peaceful days of bliss.<</nobr>>
 
 If you could go back and live that life again, there were a lot of things you'd have done differently. Unfortunately, the only thing you could do now was reminisce on a past that was long gone.
 
 [[Reminisce on those peaceful days|ThePast-0]]
 
 :: ThePast-0 {"position":"125,125"}
-<<set _shirts = ["white t-shirt", ]>>
+<<nobr>><<set _shirts = ["white t-shirt", "black tanktop"]>>
 <<set _pants = ["brown shorts", "jeans"]>>
 <<set _shoes = ["straw sandals", "brown boots"]>>
 <<set $answer = "">>
-You awake to the rising sun peeking in through the window, bathing your room in its unwelcome glow. Like most days you find yourself tugging your bedsheet up over your face, trying to hide from that pesky invader.
+You awake to the rising sun peeking in through the window, bathing your room in its unwelcome glow. Like most days you find yourself tugging the bedsheet up over your face, trying to hide from that pesky invader.<</nobr>>
 
 This battle is of course in vain, and you eventually have to admit defeat. Throwing the covers off with an irritated grumble, you shield your eyes against that annoying invading light. After blinking the sleep out of your eyes, it's time to start the day.
 
-Pulling open a large wooden wardrobe, you start getting dressed. First a <<listbox "$player.outfit.shirt">><<optionsfrom _shirts>><</listbox>>, soon followed up by a pair of <<listbox "$player.outfit.pants">><<optionsfrom _pants>><</listbox>>. Last you pull on a pair of <<listbox "$player.outfit.shoes">><<optionsfrom _shirts>><</listbox>> as you head for the door.
+Pulling open a large wooden wardrobe, you start getting dressed. First a <<listbox "$player.outfit.shirt">><<optionsfrom _shirts>><</listbox>>, soon followed up by a pair of <<listbox "$player.outfit.pants">><<optionsfrom _pants>><</listbox>>. Last you pull on a pair of <<listbox "$player.outfit.shoes">><<optionsfrom _shoes>><</listbox>> as you head for the door.
 
 [[Ready to face the day, you left the room|ThePast-1]]
 
 :: ThePast-1 {"position":"0,125"}
-If you were to describe your house in one word, perhaps it would be "cozy." There are about six rooms in total - the living room, the kitchen, a bathroom, and three bedrooms - and the house itself is made of a dark, polished wood. Perhaps the sole exception to this rule is a stone fireplace in the living room, which isn't needed often.
+If you were to describe your house in one word, perhaps it would be "cozy." There are about six rooms in total - the living room, the kitchen, a bathroom, and three bedrooms - and the house itself is made of a dark, polished wood. Perhaps the sole exception to this rule is a stone fireplace in the living room, which isn't needed often thanks to the warm climate.
 
 Dark green carpets can be found covering parts of the floor, while family portraits, landscape photos, and father's hunting rifle adorn the walls. Toys, odd trinkets, a recently used cup, hunting trophies, and an art project your sister was working on are also scattered about. Although your mom likes to call this lived in, you prefer to think of it as cluttered.
 
-As you make your way into the living room, the pleasant scent of seasoned fish, fresh baked bread, and roasted coffee wafts in your direction. It seems your mom had been hard at work in the kitchen preparing breakfast today, though she now sits at the table enjoying the results of her hard work. Two other people sit at the table, who you recognize as your friends <<print $friendMale.name>> and <<print $friendFemale.name>>.
+As you make your way into the living room, the pleasant scent of seasoned fish, fresh baked bread, and roasted coffee wafts in your direction. It seems your mom had been hard at work in the kitchen preparing breakfast today, though she now sits at the table enjoying the results of her hard work. One other person sits at the table, who you recognize as your friend <<print $friendMale.name>>.
 
 "Good morning, <<textbox "$player.name" $player.name>>," your mother says, smiling in your direction. "How's my darling little <<listbox "$player.gender" autoselect>>
     [<<option "daughter" autoselect>>]
     [<<option "son">>]
 <</listbox>> doing?"
 
-There's a brief snicker from <<print $friendFemale.name>>. <<print $friendMale.name>> sighs, who takes a drink without saying a word.
+<<print $friendMale.name>> takes a drink without saying a word, though there is a hint of a smile.
 
 [[I'm not a kid anymore.|ThePast-2][$answer = "NotAKid"]]
-[[I'm doing fine. Thanks.|ThePast-2][$answer "DoingFine"]]
+[[I'm doing fine. Thanks.|ThePast-2][$answer = "DoingFine"]]
 
-:: ThePast-2 {"position":"125,250"}
-<<if $player.gender == "daughter">>
-    <<set $player.gender == "female">>
-<<elseif $player.gender == "son">>
-    <<set $player.gender == "male">>
-<</if>>
-<<if $answer == "NotAKid">>
-    <<set $friendFemale.friendship += 2>>
-    "You're still my darling little <<if $player.gender == 0>>son<<else>>daughter<</if>>," your mother sighs. "Can't you at least humor me a little?"
+:: ThePast-2 {"position":"0,250"}
+<<if $player.gender == "daughter">>\
+    <<set $player.gender == "female">>\
+<<elseif $player.gender == "son">>\
+    <<set $player.gender == "male">>\
+<</if>>\
+<<if $answer == "NotAKid">>\
+    "You're still my darling little <<if $player.gender == "male">>son<<else>>daughter<</if>>," your mother sighs. "Can't you at least humor me a little?"
 
     "Not a chance," you say, rolling your eyes. "I'm sixteen. I'm way too old to be your 'darling little' anything."
 
-    "Suit yourself," she says, taking a long drink of coffee. ""
-<<elseif $answer == "DoingFine">>
-    <<set $friendMale.friendship += 2>>
+    "Suit yourself," she says, taking a long drink of coffee.
+<<elseif $answer == "DoingFine">>\
+    <<set $friendMale.friendship += 2>>\
     Your mother smiles, setting her cup aside. "I'm glad to hear that." 
+<</if>>\
+
+"So what's the plan for today?" <<print $friendMale.name>> asks. "You're the birthday <<if $player.gender == "male">>boy<<else>>girl<</if>>. Whatever you say goes."
+
+You stop to ponder your next move. There is one more person you could invite, but most people find her unnerving and make an effort to avoid her. If you've treated her well over the years, then there's no doubt she would have become a loyal friend. However, being nice to her would have left you alienated from other children in the neighborhood.
+
+<<link [["Let's go get " + $friendFemale.name + ". We couldn't possibly celebrate without her."|ThePast-VisitSophia]]>>\
+        <<set $friendFemale.friendship += 60>>\
+        <<set $sophiaFriend = true>>\
+<</link>>
+<<link [["You know me better than anyone, " + $friendMale.name + ". What do you suggest?"|ThePast-DayWithVictor]]>>\
+        <<set $friendFemale.friendship -= 20>>\
+        <<set $friendMale.friendship += 20>>\
+<</link>>
+
+:: ThePast-VisitSophia {"position":"125,250"}
+At the mention of <<print $friendFemale.name>>, your mom frowns. "She's not coming here is she?"
+
+"Don't worry, mom. I won't invite her over."
+
+"Then do as you want," your mom says. Nonetheless, she looks down into her mug as if expecting something to crawl out of it. "Be careful, okay? Something about that girl isn't right."
+
+You had never understood why no-one seemed to like <<print $friendFemale.name>>, but apart from you and <<print $friendMale.name>>, no-one did. And even <<print $friendMale.name>> was afraid of her at first. While you and <<print $friendFemale.name>> hit it off pretty quickly, it took <<print $friendMale.name>> a long time and much encouragement from you before he'd even start talking to her. In a sense, you were literally the glue holding your ragtag little group together.
+
+The few times you asked people why they didn't like her, you had only gotten vague answers. They'd say she made them uncomfortable or that her mere presence made them feel violated, but they could never explain why. It's like she gave off strange waves or something that everyone could detect except for you.
+
+[[That sounds like a wonderful idea|ThePast-Goldfield]]
+
+:: ThePast-DayWithVictor {"position":"125,375"}
+"Why don't we take a walk while we figure it out?" <<print $friendMale.name>> grins, patting you on the back as he gestures towards the door. "It's a nice day out and our quaint little neighborhood is quite beautiful, if I do say so myself."
+
+[[Sure. That sounds like a good idea|ThePast-Goldfield]]
+
+:: ThePast-Goldfield {"position":"250,325"}
+Beyond the fenced garden surrounding your house, felds of wheat stretch out beneath the morning sun. A narrow gravel road cuts through those golden fields, which is separated from your house by a rippling rocky creak filled with fish swimming about. Although it would be easy enough to hop over to the other side were it not for the wooden fence blocking your path, a small wooden bridge makes that quite unnecessary.
+
+Of course, Goldfield isn't only golden fields. Houses and trees dot the landscape, many of which are surrounded by lush green gardens just like yours. In another section of the neighborhood lies a big collection of tents, which you know is where you'll find the market, and within a cluster of buildings, you know you'd find places like the arcade and the mayor's office. 
+
+Beyond even that lies the city, whose buildings are so big they fill the distant landscape like mountain ranges. Although most people lived and died in Goldfield, there were those who left upon reaching adulthood to seek out a more exciting life in the city. Your older brother had been one such person.
+
+[[I can't wait to leave this place|ThePast-Goldfield-2]]
+[[I'd like to live here forever|ThePast-Goldfield-2][$answer = "LikeIt"]]
+
+
+:: ThePast-Goldfield-2 {"position":"375,325"}
+<<if $answer == "LikeIt">>\
+    Although the city promised new experiences and a type of excitement you'd never find here, it doesn't appeal to you. Sure, Goldfield is a rather quiet place where things rarely change, but it was home. 
+    
+    Best of all, the community here is very close-knit. Even if you didn't get along with everyone, the bonds you made here were the kind that would last for a lifetime. And although it was rare, sometimes someone new even moved in<<if $sophiaFriend>>; in fact, your dear friend <<print $friendFemale.name>> had been one such new arrival<<else>>.<</if>>
+<<else>>\
+    The city promises exciting new experiences, so how could you not want to go explore it? While Goldfield had its good points, it was definitely boring. Nothing interesting ever happened and while the friendships here were known to last for a lifetime, it was also incredibly rare to meet someone new. Even the arrival of <<print $friendFemale.name>>'s family was seen as highly unusual, <<if $sophiaFriend>>but you were glad you got to meet such a dear friend<<else>>and unfortunately you just didn't get along with that girl.<</if>>
+    
+    And of course, you couldn't talk about how boring Goldfield is without mentioning the wheat. Everywhere you looked was that damn wheat, whether it was outside your window or baked into a loaf of bread. If there was one thing you were grateful for, then it was no doubt that neither of your parents ran a bakery or worked in the wheat fields. You'd seen <<print $friendMale.name>>'s lunches and having bread every day looked miserable.
+<</if>>\
+
+<<if $sophiaFriend>>\
+    [["Eventually, you reach " + $friendFemale.name + "'s house"|ThePast-VisitSophia-2]]    
+<<else>>
+
 <</if>>
 
-"That's right. We're going to go explore the forest."
+:: ThePast-VisitSophia-2 {"position":"375,200"}
+Much like your own, <<print $friendFemale.name>>'s house is surrounded by a walled garden. 
 
-Your mom frowned, bringing a hand up to her cheek. "Be careful, okay? I've heard strange people have been seen there recently."
+As you step through a green wooden arch, the gravel path is replaced by a path of rocks. 
 
-"Don't worry, I will be," I lied. "We "
-
-Naturally, my mom didn't need to know we were there going there to figure out what those people were doing. 
-
-[[Head out|ThePast-3]]
-
-:: ThePast-3 {"position":"0,250"}
+[[Let's go to the arcade|ThePast-Arcade][$answer = "arcade"]]
+[[]]
